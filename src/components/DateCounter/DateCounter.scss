@@ -21,11 +21,21 @@
     @include tablet {
       @include typography_paragraph;
     }
+
+    &--weekend {
+      @extend .DateCounter__date;
+      color: $color_purple_primary;
+    }
   }
   
   &__count {
     @include typography_paragraph;
     font-weight: 700;
+
+    &--weekend {
+      @extend .DateCounter__count;
+      color: $color_purple_primary;
+    }
   }
 
   &__empty {

@@ -9,10 +9,15 @@ const DateCounter = ({ data }) => {
 
   return (
     <li className={`DateCounter ${isEmpty ? "DateCounter__empty" : ""}`}>
-      <h5 className="DateCounter__date">{date}</h5>
-      <p className="DateCounter__count">{data.count}</p>
+      <h5 className={`DateCounter__date${addDayClass(date)}`}>{date}</h5>
+      <p className={`DateCounter__count${addDayClass(date)}`}>{data.count}</p>
     </li>
   );
+
+  function addDayClass(date) {
+    const isWeekend = date.includes("Saturday") || date.includes("Sunday")
+    return isWeekend ? "--weekend" : "";
+  }
 };
 
 export default DateCounter;
