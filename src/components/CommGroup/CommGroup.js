@@ -15,11 +15,8 @@ const CommGroup = ({ data }) => {
   const dates = makeDates(data.dates);
 
   return (
-    <article 
-      className={`CommGroup ${isEmpty ? "CommGroup__empty" : ""}`}
-      onClick={toggleCalendar}
-    >
-      <header className="CommGroup__header">
+    <article className={`CommGroup ${isEmpty ? "CommGroup__empty" : ""}`}>
+      <header className="CommGroup__header" onClick={toggleCalendar}>
         <div className="CommGroup__headerTitle">
           <h4 className="CommGroup__name">{commName}</h4>
           <p className="CommGroup__total">{data.total}</p>
