@@ -31,8 +31,8 @@ const Clinic = ({ clinic }) => {
           <h3 className="Clinic__total">Total {clinicTotal}</h3>
         </div>
         <div>
-          {!showCommGroup && <i class="far fa-plus-square"></i>}
-          {showCommGroup && <i class="far fa-minus-square"></i>}
+          {!showCommGroup && <i className="far fa-plus-square"></i>}
+          {showCommGroup && <i className="far fa-minus-square"></i>}
         </div>
       </header>
       {showCommGroup && commGroupData.map((commGroup, i) => <CommGroup data={commGroup} key={"commGroup_" + i} />)}

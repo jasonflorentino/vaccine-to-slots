@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 
-import config from './config';
 import './App.scss';
 import Header from './components/Header/Header';
 import Clinic from './components/Clinic/Clinic';
@@ -11,7 +10,7 @@ function App() {
   const [lastUpdated, setLastUpdated] = useState("");
 
   const fetchData = async () => {
-    const response = await fetch(config.API_URL)
+    const response = await fetch(process.env.REACT_APP_API_URL)
     const parsedResponse = await response.json();
     const resData = parsedResponse.data;
 

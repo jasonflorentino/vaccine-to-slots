@@ -25,8 +25,8 @@ const CommGroup = ({ data }) => {
           <p className="CommGroup__total">{data.total}</p>
         </div>
         <div>
-          {!showCalendar && <i class="fas fa-plus"></i>}
-          {showCalendar && <i class="fas fa-minus"></i>}
+          {!showCalendar && <i className="fas fa-plus"></i>}
+          {showCalendar && <i className="fas fa-minus"></i>}
         </div>
       </header>
       {!isEmpty && showCalendar && (
