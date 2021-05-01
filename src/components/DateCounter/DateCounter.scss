@@ -1,0 +1,33 @@
+@use "../../partials/variables" as *;
+@use "../../partials/typography" as *;
+@use "../../partials/mixins" as *;
+
+.DateCounter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid $color_blue_primary;
+  padding: .25rem 0;
+  
+  @include tablet {
+    padding: .5rem 0;
+  }
+
+  &__date {
+    @include typography_caption;
+    font-weight: 500;
+    
+    @include tablet {
+      @include typography_paragraph;
+    }
+  }
+  
+  &__count {
+    @include typography_paragraph;
+    font-weight: 700;
+  }
+
+  &__empty {
+    opacity: .3;
+  }
+}

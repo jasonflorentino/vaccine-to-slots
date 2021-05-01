@@ -1,16 +1,33 @@
+import { useState } from "react";
+
 import "./CommGroup.scss";
+import DateCounter from "../DateCounter/DateCounter";
 
 const CommGroup = ({ data }) => {
   
+  const [showCalendar, setShowCalendar] = useState(false);
+  const toggleCalendar = () => {
+    setShowCalendar(!showCalendar);
+  }
+
   const isEmpty = data.total === 0;
   const commName = getCommName(data.name);
+  const dates = makeDates(data.dates);
 
   return (
-    <article className={`CommGroup ${isEmpty ? "CommGroup__empty" : ""}`}>
+    <article 
+      className={`CommGroup ${isEmpty ? "CommGroup__empty" : ""}`}
+      onClick={toggleCalendar}
+    >
       <header className="CommGroup__header">
         <h4 className="CommGroup__name">{commName}</h4>
         <p className="CommGroup__total">{data.total}</p>
       </header>
+      {!isEmpty && showCalendar && (
+        <ul className="CommGroup__list">
+          {dates.map((day, i) => <DateCounter data={day} key={"dateCounter_" + i} />)}
+        </ul>)
+      }
     </article>
   );
 };
@@ -32,4 +49,19 @@ function getCommName(name) {
     default:
       return name;
   }
+}
+
+function makeDates(data) {
+  const output = [];
+
+  for (const day in data) {
+    output.push({
+      date: day,
+      count: data[day]
+    })
+  }
+
+  output.sort((a, b) => a.date - b.date);
+
+  return output;
 }

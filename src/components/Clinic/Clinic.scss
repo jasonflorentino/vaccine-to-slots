@@ -17,9 +17,19 @@
 
   &__name {
     @include typography_heading5;
-
+    
     @include tablet {
       @include typography_heading4;
+    }
+  }
+  
+  &__total {
+    @include typography_paragraph;
+    margin-top: .25rem;
+
+    @include tablet {
+      @include typography_heading5;
+      margin-top: .5rem;
     }
   }
 
