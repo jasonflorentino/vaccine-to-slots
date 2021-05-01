@@ -1,3 +1,5 @@
+@use "./variables" as *;
+
 body {
   display: flex;
   flex-direction: column;
@@ -13,4 +15,15 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.far {
+  color: $color_purple_primary;
+  transform: scale(1.1);
+}
+
+.fas {
+  color: $color_blue_dark;
+  transform: scale(0.8);
+  margin-left: .5rem
 }

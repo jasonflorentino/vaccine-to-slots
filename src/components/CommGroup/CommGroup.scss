@@ -11,16 +11,25 @@
 
   &__header {
     display: flex;
-    align-items: center
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  &__headerTitle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   &__name {
     @include typography_paragraph;
     font-weight: 500;
-    margin-right: .5rem
+    padding-right: .25rem;
   }
 
   &__total {
+    padding-right: .25rem;
     @include typography_heading5;
     font-weight: 700;
   }
@@ -31,5 +40,10 @@
 
   &__empty {
     opacity: .5;
+  }
+
+  &__noneText {
+    @include typography_paragraph;
+    margin-top: .5rem;
   }
 }

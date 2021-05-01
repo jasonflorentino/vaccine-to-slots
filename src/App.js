@@ -34,7 +34,18 @@ function App() {
     <div className="App">
       <Header updateTime={lastUpdated} />
       <main className="App__main">
-        {data.map((clinic, i) => <Clinic clinic={clinic} key={"clinic_" + i} />)}
+        <div className="App__column">
+          {data.map((clinic, i) => {
+            if (i > data.length / 2) return null;
+            return <Clinic clinic={clinic} key={"clinic_" + i} />
+          })}
+        </div>
+        <div className="App__column">
+          {data.map((clinic, i) => {
+            if (i < data.length / 2) return null;
+            return <Clinic clinic={clinic} key={"clinic_" + i} />
+          })}
+        </div>
       </main>
     </div>
   );

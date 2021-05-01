@@ -21,8 +21,15 @@
   &__main {
     @include tablet {
       display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
+    }
+  }
+
+  &__column {
+    width: 100%;
+
+    @include tablet {
+      width: 49%;
     }
   }
 }

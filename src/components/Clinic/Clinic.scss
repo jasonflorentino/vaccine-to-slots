@@ -11,8 +11,12 @@
   border-radius: .25rem;
   
   @include tablet {
-    width: 48%;
     margin-top: 2rem;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
   }
 
   &__name {

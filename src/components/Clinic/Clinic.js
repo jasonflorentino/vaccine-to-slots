@@ -1,7 +1,14 @@
+import { useState } from "react";
+
 import CommGroup from '../CommGroup/CommGroup';
 import "./Clinic.scss";
 
 const Clinic = ({ clinic }) => {
+
+  const [showCommGroup, setShowCommGroup] = useState(false);
+  const toggleCommGroup = () => {
+    setShowCommGroup(!showCommGroup);
+  }
 
   const [ clinicTotal, groups ] = countTotals(clinic.availabilities);
   const commGroupData = [];
@@ -18,9 +25,17 @@ const Clinic = ({ clinic }) => {
 
   return (
     <section className={`Clinic ${isEmpty ? "Clinic__empty" : ""}`}>
-      <h2 className="Clinic__name">{clinic.name}</h2>
-      <h3 className="Clinic__total">Total {clinicTotal}</h3>
-      {commGroupData.map((commGroup, i) => <CommGroup data={commGroup} key={"commGroup_" + i} />)}
+      <header className="Clinic__header" onClick={toggleCommGroup}>
+        <div>
+          <h2 className="Clinic__name">🏥 {clinic.name}</h2>
+          <h3 className="Clinic__total">Total {clinicTotal}</h3>
+        </div>
+        <div>
+          {!showCommGroup && <i class="far fa-plus-square"></i>}
+          {showCommGroup && <i class="far fa-minus-square"></i>}
+        </div>
+      </header>
+      {showCommGroup && commGroupData.map((commGroup, i) => <CommGroup data={commGroup} key={"commGroup_" + i} />)}
     </section>
   );
 };
