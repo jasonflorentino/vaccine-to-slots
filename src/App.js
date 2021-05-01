@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import './App.scss';
+import utils from './utilities/utils';
 import Header from './components/Header/Header';
 import Clinic from './components/Clinic/Clinic';
 import Footer from './components/Footer/Footer';
@@ -49,15 +50,17 @@ function App() {
       <Header updateTime={lastUpdated} />
       <main className="App__main">
         <div className="App__column">
+          <h2 className={`App__columnTitle${utils.hasDarkClass(theme)}`}>East</h2>
           {data.map((clinic, i) => {
-            if (i > data.length / 2) return null;
+            if (i > 2) return null;
             const id = "clinic_" + i + clinic.name;
             return <Clinic clinic={clinic} id={id} key={id} />
           })}
         </div>
         <div className="App__column">
+          <h2 className={`App__columnTitle${utils.hasDarkClass(theme)}`}>West</h2>
           {data.map((clinic, i) => {
-            if (i < data.length / 2) return null;
+            if (i < 3) return null;
             const id = "clinic_" + i + clinic.name;
             return <Clinic clinic={clinic} id={id} key={id} />
           })}

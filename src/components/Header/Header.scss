@@ -24,6 +24,17 @@
     }
   }
 
+  &__detailsContainer {
+    display: flex;
+    flex-direction: column;
+    
+    @include tablet {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+  }
+
   &__updateTitle {
     @include typography_paragraph;
   }
@@ -34,6 +45,37 @@
 
     @include tablet {
       @include typography_heading3;
+    }
+  }
+
+  &__bookingsLink {
+    text-decoration: none;
+    padding: .75rem 1rem;
+    margin-top: .75rem;
+    width: fit-content;
+
+    @include typography_caption;
+    font-weight: 500;
+    color: darken($color_yellow_dark, 6%);
+    border: 2px solid $color_yellow_dark;
+    border-radius: .25rem;
+    background-color: lighten($color_yellow_light, 15%);
+    transition: background .2s, transform .2s;
+    
+    &:hover {
+      background-color: $color_yellow_light;
+      transition: background .2s;
+    }
+
+    &:active {
+      background-color: $color_yellow_light;
+      transform: translateY(5%);
+      transition: background .2s, transform .2s;
+    }
+
+    @include tablet {
+      @include typography_paragraph;
+      margin-top: 0;
     }
   }
 }

@@ -36,7 +36,7 @@ const Clinic = ({ clinic, id }) => {
   return (
     <section className={`Clinic ${isEmpty ? "Clinic__empty" : ""}`}>
       <header className="Clinic__header" onClick={toggleCommGroup}>
-        <div>
+        <div className="Clinic__nameContainer">
           <h2 className="Clinic__name">🏥  &nbsp;{clinic.name}</h2>
           <h3 className="Clinic__total">Total {clinicTotal}</h3>
         </div>

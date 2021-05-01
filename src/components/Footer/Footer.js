@@ -1,4 +1,5 @@
 import './Footer.scss';
+import utils from '../../utilities/utils';
 
 const Footer = ({ theme, toggleTheme }) => {
 
@@ -9,18 +10,18 @@ const Footer = ({ theme, toggleTheme }) => {
       <h3 className="Footer__madeBy">Made with ❤️&nbsp; by&nbsp;
         <a 
           href={jasonGitHubUrl} 
-          className={`Footer__link${theme === "dark" ? "--dark" : ""}`}
+          className={`Footer__link${utils.hasDarkClass(theme)}`}
           target='_blank' 
           rel='noreferrer'
         >
           Jason Florentino&nbsp;
-          <i class="fas fa-external-link-alt"></i>
+          <i className="fas fa-external-link-alt"></i>
         </a>
       </h3>
       <div className="Footer__themeToggle">
         ☀️
         <label className="switch">
-          <input type="checkbox" checked={theme === "dark" ? true : false} />
+          <input type="checkbox" checked={theme === "dark" ? true : false} readOnly />
           <span className="slider round" onClick={toggleTheme}></span>
         </label>
         🌙

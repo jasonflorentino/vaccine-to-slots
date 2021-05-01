@@ -2,7 +2,7 @@
 @use "./partials/resets";
 @use "./partials/base";
 @use "./partials/mixins" as *;
-@use "./partials/typography";
+@use "./partials/typography" as *;
 
 .App {
   width: 100%;
@@ -40,6 +40,23 @@
 
     @include tablet {
       width: 49%;
+    }
+  }
+
+  &__columnTitle {
+    margin-top: .75rem;
+    @include typography_heading5;
+    color: $color_purple_primary;
+    
+    @include tablet {
+      margin-top: 1rem;
+      margin-bottom: -0.5rem;
+      @include typography_heading4;
+    }
+    
+    &--dark {
+      @extend .App__columnTitle;
+      color: $color_purple_light;
     }
   }
 }

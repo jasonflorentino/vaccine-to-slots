@@ -20,6 +20,10 @@
     cursor: pointer;
   }
 
+  &__nameContainer {
+    padding-right: .25rem;
+  }
+
   &__name {
     @include typography_heading5;
     
