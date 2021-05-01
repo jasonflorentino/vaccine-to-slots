@@ -1,0 +1,29 @@
+@use "../../partials/variables" as *;
+@use "../../partials/typography" as *;
+@use "../../partials/mixins" as *;
+
+.Clinic {
+  margin-top: 1rem;
+  padding: 1rem;
+  
+  background-color: lighten($color_blue_light, 10%);
+  border: 2px solid $color_blue_primary;
+  border-radius: .25rem;
+  
+  @include tablet {
+    width: 48%;
+    margin-top: 2rem;
+  }
+
+  &__name {
+    @include typography_heading5;
+
+    @include tablet {
+      @include typography_heading4;
+    }
+  }
+
+  &__empty {
+    opacity: .4;
+  }
+}

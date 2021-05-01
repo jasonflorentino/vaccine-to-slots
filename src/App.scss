@@ -1,0 +1,27 @@
+@use "./partials/variables" as *;
+@use "./partials/resets";
+@use "./partials/base";
+@use "./partials/mixins" as *;
+@use "./partials/typography";
+
+.App {
+  width: 100%;
+  max-width: $app_max;
+  padding: 0rem 1rem;
+  
+  @include tablet {
+    padding: 0rem 2rem;
+  }
+
+  @include desktop {
+    padding: 0rem 3rem;
+  }
+
+  &__main {
+    @include tablet {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }
+}

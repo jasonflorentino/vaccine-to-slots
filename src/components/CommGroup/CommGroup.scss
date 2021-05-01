@@ -1,0 +1,31 @@
+@use "../../partials/variables" as *;
+@use "../../partials/typography" as *;
+@use "../../partials/mixins" as *;
+
+.CommGroup {
+  padding: 0.5rem;
+  margin: .5rem 0;
+  background-color: $color_bw_white;
+  border: 2px solid $color_bw_ltgrey;
+  border-radius: .25rem;
+
+  &__header {
+    display: flex;
+    align-items: center
+  }
+
+  &__name {
+    @include typography_paragraph;
+    font-weight: 500;
+    margin-right: .5rem
+  }
+
+  &__total {
+    @include typography_heading5;
+    font-weight: 700;
+  }
+
+  &__empty {
+    opacity: .5;
+  }
+}

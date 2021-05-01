@@ -1,0 +1,39 @@
+@use "../../partials/variables" as *;
+@use "../../partials/typography" as *;
+@use "../../partials/mixins" as *;
+
+.Header {
+  margin-top: 1rem;
+  padding: 1rem;
+  
+  background-color: lighten($color_purple_light, 10%);
+  border: 2px solid $color_purple_primary;
+  border-radius: .25rem;
+  
+  @include tablet {
+    margin-top: 2rem;
+  }
+
+  &__heading {
+    @include typography_heading2;
+    margin-bottom: .5rem;
+    
+    @include tablet {
+      @include typography_headingHero;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__updateTitle {
+    @include typography_paragraph;
+  }
+
+  &__updateTime {
+    @include typography_heading4;
+    font-weight: 700;
+
+    @include tablet {
+      @include typography_heading3;
+    }
+  }
+}
