@@ -20,14 +20,23 @@ const CommGroup = ({ data }) => {
       onClick={toggleCalendar}
     >
       <header className="CommGroup__header">
-        <h4 className="CommGroup__name">{commName}</h4>
-        <p className="CommGroup__total">{data.total}</p>
+        <div className="CommGroup__headerTitle">
+          <h4 className="CommGroup__name">{commName}</h4>
+          <p className="CommGroup__total">{data.total}</p>
+        </div>
+        <div>
+          {!showCalendar && <i class="fas fa-plus"></i>}
+          {showCalendar && <i class="fas fa-minus"></i>}
+        </div>
       </header>
       {!isEmpty && showCalendar && (
         <ul className="CommGroup__list">
           {dates.map((day, i) => <DateCounter data={day} key={"dateCounter_" + i} />)}
         </ul>)
       }
+      {isEmpty && showCalendar && (
+        <p class="CommGroup__noneText">Nothing to show</p>
+      )}
     </article>
   );
 };

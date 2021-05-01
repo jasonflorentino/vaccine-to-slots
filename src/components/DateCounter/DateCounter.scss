@@ -16,6 +16,7 @@
   &__date {
     @include typography_caption;
     font-weight: 500;
+    width: 100%;
     
     @include tablet {
       @include typography_paragraph;
