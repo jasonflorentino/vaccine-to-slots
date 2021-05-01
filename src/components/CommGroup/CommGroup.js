@@ -3,10 +3,18 @@ import { useState } from "react";
 import "./CommGroup.scss";
 import DateCounter from "../DateCounter/DateCounter";
 
-const CommGroup = ({ data }) => {
-  
-  const [showCalendar, setShowCalendar] = useState(false);
+const CommGroup = ({ data, id, drawerState }) => {
+
+  const loadState = drawerState["show" + id];
+  const [showCalendar, setShowCalendar] = useState(loadState || false);
+
   const toggleCalendar = () => {
+    const currentLocalStore = JSON.parse(localStorage.getItem("drawerState"));
+    localStorage.setItem("drawerState", JSON.stringify({
+      ...currentLocalStore,
+      ["show" + id]: !showCalendar
+    }));
+    
     setShowCalendar(!showCalendar);
   }
 
@@ -32,7 +40,7 @@ const CommGroup = ({ data }) => {
         </ul>)
       }
       {isEmpty && showCalendar && (
-        <p class="CommGroup__noneText">Nothing to show</p>
+        <p className="CommGroup__noneText">Nothing to show</p>
       )}
     </article>
   );

@@ -36,13 +36,15 @@ function App() {
         <div className="App__column">
           {data.map((clinic, i) => {
             if (i > data.length / 2) return null;
-            return <Clinic clinic={clinic} key={"clinic_" + i} />
+            const id = "clinic_" + i + clinic.name;
+            return <Clinic clinic={clinic} id={id} key={id} />
           })}
         </div>
         <div className="App__column">
           {data.map((clinic, i) => {
             if (i < data.length / 2) return null;
-            return <Clinic clinic={clinic} key={"clinic_" + i} />
+            const id = "clinic_" + i + clinic.name;
+            return <Clinic clinic={clinic} id={id} key={id} />
           })}
         </div>
       </main>

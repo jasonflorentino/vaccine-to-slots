@@ -3,10 +3,20 @@ import { useState } from "react";
 import CommGroup from '../CommGroup/CommGroup';
 import "./Clinic.scss";
 
-const Clinic = ({ clinic }) => {
+const Clinic = ({ clinic, id }) => {
 
-  const [showCommGroup, setShowCommGroup] = useState(false);
+  const drawerState = JSON.parse(localStorage.getItem("drawerState")) || {};
+  const loadState = drawerState["show" + id];
+  
+  const [showCommGroup, setShowCommGroup] = useState(loadState || false);
+
   const toggleCommGroup = () => {
+    const currentLocalStore = JSON.parse(localStorage.getItem("drawerState"));
+    localStorage.setItem("drawerState", JSON.stringify({
+      ...currentLocalStore,
+      ["show" + id]: !showCommGroup
+    }));
+
     setShowCommGroup(!showCommGroup);
   }
 
@@ -35,7 +45,10 @@ const Clinic = ({ clinic }) => {
           {showCommGroup && <i className="far fa-minus-square"></i>}
         </div>
       </header>
-      {showCommGroup && commGroupData.map((commGroup, i) => <CommGroup data={commGroup} key={"commGroup_" + i} />)}
+      {showCommGroup && commGroupData.map((commGroup, i) => {
+        const id = "commGroup_" + i + commGroup.name;
+        return <CommGroup data={commGroup} id={id} drawerState={drawerState} key={id} />
+      })}
     </section>
   );
 };
