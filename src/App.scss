@@ -7,8 +7,16 @@
 .App {
   width: 100%;
   max-width: $app_max;
-  margin-bottom: 2rem;
+  min-height: 100vh;
   padding: 0rem 1rem;
+  background-color: inherit;
+  transition: background-color .3s;
+  
+  &--dark {
+    background-color: #323232;
+    color: #000000;
+    transition: background-color .3s;
+  }
   
   @include tablet {
     padding: 0rem 2rem;
@@ -19,6 +27,8 @@
   }
 
   &__main {
+    margin-bottom: 2rem;
+    
     @include tablet {
       display: flex;
       justify-content: space-between;
