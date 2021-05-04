@@ -5,8 +5,8 @@ import DateCounter from "../DateCounter/DateCounter";
 
 const CommGroup = ({ data, id, drawerState }) => {
 
-  const loadState = drawerState["show" + id];
-  const [showCalendar, setShowCalendar] = useState(loadState || false);
+  const drawerCalendarState = drawerState["show" + id];
+  const [showCalendar, setShowCalendar] = useState(drawerCalendarState || false);
 
   const toggleCalendar = () => {
     const currentLocalStore = JSON.parse(localStorage.getItem("drawerState"));

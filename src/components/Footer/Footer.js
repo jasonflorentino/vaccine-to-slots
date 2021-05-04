@@ -6,7 +6,7 @@ const Footer = ({ theme, toggleTheme }) => {
   const repoUrl = 'https://github.com/jasonflorentino/vaccine-to-slots';
 
   return (
-    <footer className={`Footer${theme === "dark" ? "--dark" : ""}`}>
+    <footer className={`Footer${utils.hasDarkClass(theme)}`}>
       <h3 className="Footer__madeBy">Made with ❤️&nbsp; by&nbsp;
         <a 
           href={repoUrl} 

@@ -8,11 +8,11 @@ import Footer from './components/Footer/Footer';
 
 function App() {
 
-  const drawerState = localStorage.getItem("theme") || "light";
+  const themeState = localStorage.getItem("theme") || "light";
 
   const [data, setData] = useState([]);
   const [lastUpdated, setLastUpdated] = useState("");
-  const [theme, setTheme] = useState(drawerState);
+  const [theme, setTheme] = useState(themeState);
 
   const fetchData = async () => {
     const response = await fetch(process.env.REACT_APP_API_URL)
