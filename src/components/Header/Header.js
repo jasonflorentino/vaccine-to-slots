@@ -12,15 +12,23 @@ const Header = ({ updateTime }) => {
           <h2 className="Header__updateTitle">Last Updated</h2>
           <p className="Header__updateTime">{updateTime}</p>
         </div>
-        <a 
-          href={bookingUrl}
-          className={`Header__bookingsLink`}
-          target='_blank' 
-          rel='noreferrer'
-        >
-          Go to Bookings&nbsp;
-          <i className="fas fa-external-link-alt"></i>
-        </a>
+        <div className="Header__actions">
+          <button 
+            onClick={() => window.location.reload()}
+            className="Header__button"
+          >
+            Refresh
+          </button>
+          <a 
+            href={bookingUrl}
+            className="Header__bookingsLink"
+            target='_blank' 
+            rel='noreferrer'
+          >
+            Go to Bookings&nbsp;
+            <i className="fas fa-external-link-alt"></i>
+          </a>
+        </div>
       </div>
     </header>
   );

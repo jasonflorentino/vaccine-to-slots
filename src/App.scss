@@ -4,19 +4,26 @@
 @use "./partials/mixins" as *;
 @use "./partials/typography" as *;
 
-.App {
+.themeContainer {
   width: 100%;
-  max-width: $app_max;
   min-height: 100vh;
-  padding: 0rem 1rem;
+  display: flex;
+  justify-content: center;
   background-color: inherit;
   transition: background-color .3s;
   
   &--dark {
+    @extend .themeContainer;
     background-color: #323232;
     color: #000000;
     transition: background-color .3s;
   }
+}
+
+.App {
+  width: 100%;
+  max-width: $app_max;
+  padding: 0rem 1rem;
   
   @include tablet {
     padding: 0rem 2rem;

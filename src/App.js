@@ -46,27 +46,31 @@ function App() {
   }
 
   return (
-    <div className={`App ${theme === "dark" ? "App--dark" : ""}`}>
-      <Header updateTime={lastUpdated} />
-      <main className="App__main">
-        <div className="App__column">
-          <h2 className={`App__columnTitle${utils.hasDarkClass(theme)}`}>East</h2>
-          {data.map((clinic, i) => {
-            if (i > 2) return null;
-            const id = "clinic_" + i + clinic.name;
-            return <Clinic clinic={clinic} id={id} key={id} />
-          })}
-        </div>
-        <div className="App__column">
-          <h2 className={`App__columnTitle${utils.hasDarkClass(theme)}`}>West</h2>
-          {data.map((clinic, i) => {
-            if (i < 3) return null;
-            const id = "clinic_" + i + clinic.name;
-            return <Clinic clinic={clinic} id={id} key={id} />
-          })}
-        </div>
-      </main>
-      <Footer theme={theme} toggleTheme={toggleTheme} />
+    <div className={`themeContainer${utils.hasDarkClass(theme)}`}>
+
+      <div className="App">
+        <Header updateTime={lastUpdated} />
+        <main className="App__main">
+          <div className="App__column">
+            <h2 className={`App__columnTitle${utils.hasDarkClass(theme)}`}>East</h2>
+            {data.map((clinic, i) => {
+              if (i > 3) return null;
+              const id = "clinic_" + i + clinic.name;
+              return <Clinic clinic={clinic} id={id} key={id} />
+            })}
+          </div>
+          <div className="App__column">
+            <h2 className={`App__columnTitle${utils.hasDarkClass(theme)}`}>West</h2>
+            {data.map((clinic, i) => {
+              if (i < 4) return null;
+              const id = "clinic_" + i + clinic.name;
+              return <Clinic clinic={clinic} id={id} key={id} />
+            })}
+          </div>
+        </main>
+        <Footer theme={theme} toggleTheme={toggleTheme} />
+      </div>
+
     </div>
   );
 }

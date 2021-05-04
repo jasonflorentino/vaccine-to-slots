@@ -15,8 +15,13 @@
   }
 
   &__heading {
-    @include typography_heading2;
+    @include typography_heading3;
     margin-bottom: .5rem;
+
+
+    @include mobile_425 {
+      @include typography_heading2;
+    }
     
     @include tablet {
       @include typography_headingHero;
@@ -48,33 +53,59 @@
     }
   }
 
-  &__bookingsLink {
-    text-decoration: none;
-    padding: .75rem 1rem;
-    margin-top: .75rem;
-    width: fit-content;
+  &__actions {
+    display: flex;
 
-    @include typography_caption;
-    font-weight: 500;
+    @include mobile_425 {
+      margin-top: .75rem;
+      justify-content: flex-end;
+    }
+  }
+
+  &__button {
+    @include button;
+    margin-top: .75rem;
+    margin-right: .5rem;
+    color: darken($color_blue_dark, 6%);
+    border: 2px solid $color_blue_dark;
+    background-color: lighten($color_blue_light, 15%);
+    
+    &:hover {
+      background-color: $color_blue_light;
+    }
+    
+    &:active {
+      background-color: $color_blue_light;
+    }
+    
+    @include mobile_425 {
+      margin-top: 0;
+      margin-right: .75rem;
+    }
+
+    @include tablet {
+      margin-right: 1rem;
+    }
+  }
+
+  &__bookingsLink {
+    @include button;
+    text-decoration: none;
+    margin-top: .75rem;
+
     color: darken($color_yellow_dark, 6%);
     border: 2px solid $color_yellow_dark;
-    border-radius: .25rem;
     background-color: lighten($color_yellow_light, 15%);
-    transition: background .2s, transform .2s;
     
     &:hover {
       background-color: $color_yellow_light;
-      transition: background .2s;
     }
 
     &:active {
       background-color: $color_yellow_light;
-      transform: translateY(5%);
-      transition: background .2s, transform .2s;
     }
 
-    @include tablet {
-      @include typography_paragraph;
+    @include mobile_425 {
       margin-top: 0;
     }
   }

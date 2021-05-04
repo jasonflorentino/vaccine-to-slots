@@ -1,4 +1,11 @@
+@use "./typography" as *;
 @use "./variables" as *;
+
+@mixin mobile_425 {
+  @media (min-width: $tablet_breakpoint - 275) {
+    @content;
+  }
+}
 
 @mixin tablet {
   @media (min-width: $tablet_breakpoint) {
@@ -9,5 +16,35 @@
 @mixin desktop {
   @media (min-width: $desktop_breakpoint) {
     @content;
+  }
+}
+
+@mixin button {
+  padding: .75rem 1rem;
+  width: fit-content;
+  height: 2.9rem;
+
+  @include typography_caption;
+  font-weight: 500;
+  color: darken($color_yellow_dark, 6%);
+  border: 2px solid $color_yellow_dark;
+  border-radius: .25rem;
+  background-color: lighten($color_yellow_light, 15%);
+  transition: background .2s, transform .2s;
+  
+  &:hover {
+    background-color: $color_yellow_light;
+    transition: background .2s;
+    cursor: pointer;
+  }
+
+  &:active {
+    background-color: $color_yellow_light;
+    transform: translateY(5%);
+    transition: background .2s, transform .2s;
+  }
+
+  @include tablet {
+    @include typography_paragraph;
   }
 }

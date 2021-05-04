@@ -3,13 +3,13 @@ import utils from '../../utilities/utils';
 
 const Footer = ({ theme, toggleTheme }) => {
 
-  const jasonGitHubUrl = 'https://github.com/jasonflorentino';
+  const repoUrl = 'https://github.com/jasonflorentino/vaccine-to-slots';
 
   return (
     <footer className={`Footer${theme === "dark" ? "--dark" : ""}`}>
       <h3 className="Footer__madeBy">Made with ❤️&nbsp; by&nbsp;
         <a 
-          href={jasonGitHubUrl} 
+          href={repoUrl} 
           className={`Footer__link${utils.hasDarkClass(theme)}`}
           target='_blank' 
           rel='noreferrer'
