@@ -52,20 +52,26 @@ function App() {
         <Header updateTime={lastUpdated} />
         <main className="App__main">
           <div className="App__column">
-            <h2 className={`App__columnTitle${utils.hasDarkClass(theme)}`}>East</h2>
-            {data.map((clinic, i) => {
-              if (i > 3) return null;
-              const id = "clinic_" + i + clinic.name;
-              return <Clinic clinic={clinic} id={id} key={id} />
-            })}
+            <h2 className={`App__columnTitle${utils.hasDarkClass(theme)}`}>GTA</h2>
+            {data
+              .filter(isClinicInGta)
+              .sort(handleClinicSort)
+              .map((clinic, i) => {
+                const id = "gtaClinic_" + i + clinic.name.replace(/\s/g, "");
+                return <Clinic clinic={clinic} id={id} key={id} />
+              })
+            }
           </div>
           <div className="App__column">
-            <h2 className={`App__columnTitle${utils.hasDarkClass(theme)}`}>West</h2>
-            {data.map((clinic, i) => {
-              if (i < 4) return null;
-              const id = "clinic_" + i + clinic.name;
-              return <Clinic clinic={clinic} id={id} key={id} />
-            })}
+            <h2 className={`App__columnTitle${utils.hasDarkClass(theme)}`}>Rest of ON</h2>
+            {data
+              .filter(clinic => !isClinicInGta(clinic))
+              .sort(handleClinicSort)
+              .map((clinic, i) => {
+                const id = "nonGtaClinic_" + i + clinic.name.replace(/\s/g, "");
+                return <Clinic clinic={clinic} id={id} key={id} />
+              })
+            }
           </div>
         </main>
         <Footer theme={theme} toggleTheme={toggleTheme} />
@@ -76,3 +82,32 @@ function App() {
 }
 
 export default App;
+
+function isClinicInGta(clinic) {
+  const gtaClinics = [
+    "Regent Park 40 Oaks",
+    "St. James Town Wellesley Community Centre (WCC)",
+    "Ryerson University",
+    "St. Michael’s Hospital",
+    "St. Joseph’s Health Centre",
+    "West Park Healthcare Centre",
+    "Community Hub Place",
+    "Pickering Chestnut Hill Recreation Complex",
+    "Clarington Garnet B Rickard Recreation Complex",
+    "Ajax Audley Recreation Centre",
+    "Whitby McKinney Centre",
+    "Scugog Arena",
+    "Uxbridge Arena",
+    "L1Z – Ajax – St. Teresa of Calcutta Catholic School",
+    "L1V – Pickering – Dunbarton High School",
+    "L1T – Ajax – McLean Community Centre",
+  ]
+
+  return gtaClinics.includes(clinic.name);
+}
+
+function handleClinicSort(a, b) {
+  if (a.name < b.name) return -1;
+  if (a.name > b.name) return 1;
+  return 0;
+}

@@ -46,8 +46,8 @@ const Clinic = ({ clinic, id }) => {
         </div>
       </header>
       {showCommGroup && commGroupData.map((commGroup, i) => {
-        const id = "commGroup_" + i + commGroup.name;
-        return <CommGroup data={commGroup} id={id} drawerState={drawerState} key={id} />
+        const commGroupId = id + "commGroup_" + i + commGroup.name.replace(/\s/g, "");
+        return <CommGroup data={commGroup} id={commGroupId} drawerState={drawerState} key={commGroupId} />
       })}
     </section>
   );
