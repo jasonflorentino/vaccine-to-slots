@@ -1,0 +1,40 @@
+@use '../../partials/typography' as *;
+@use '../../partials/variables' as *;
+
+.Deprecated {
+  margin-top: 1rem;
+  padding: 1rem;
+
+  border: 2px solid $color_purple_primary;
+  border-radius: 0.25rem;
+  background-color: rgba($color_bw_ltgrey, 0.8);
+
+  @include typography_heading4;
+
+  &__textContainer {
+    margin: 0 auto;  
+    max-width: $tablet_breakpoint;
+  }
+
+  &__heading {
+    margin-bottom: 1rem;
+  }
+
+  &__p {
+    @include typography_paragraph;
+    line-height: 1.3em;
+    margin-bottom: 0.75rem;
+  }
+
+  &__subtitle {
+    @extend .Deprecated__p;
+    font-weight: 600;
+    width: fit-content;
+    background-color: rgba($color_yellow_light, 0.2);
+    border-left: 4px solid $color_yellow_light;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}

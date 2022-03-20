@@ -5,6 +5,7 @@ import utils from './utilities/utils';
 import Header from './components/Header/Header';
 import Clinic from './components/Clinic/Clinic';
 import Footer from './components/Footer/Footer';
+import Deprecated from './components/Deprecated/Deprecated';
 
 function App() {
 
@@ -50,6 +51,7 @@ function App() {
 
       <div className="App">
         <Header updateTime={lastUpdated} />
+        <Deprecated />
         <main className="App__main">
           <div className="App__column">
             <h2 className={`App__columnTitle${utils.hasDarkClass(theme)}`}>GTA</h2>
